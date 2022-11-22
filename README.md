@@ -2,8 +2,12 @@
   1. Fill your database details in .env file
   2. run "generate.bat your_message" (to generate migration in database/migrations folder, you can see generate.bat file in root folder)
   3. run "npm run migration:run" (migrate in database )
-  4. run "npm run start:dev" (now your project is running on )
+  4. run "npm link "adminjs"" (adminjs should be in double quotes)
+  5. run "npm run start:dev" (now your project is running on )
 
+## NOTE
+  1. adminjs/typeorm only supports entities that extend BaseEntity.
+  2. [Icon](https://carbondesignsystem.com/guidelines/icons/library/) library used by adminjs 
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>

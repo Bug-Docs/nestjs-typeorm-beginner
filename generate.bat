@@ -1,1 +1,1 @@
- npm run migration:generate src/database/migrations/%1
+npm run migration:generate src/database/migrations/%1
