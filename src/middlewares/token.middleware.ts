@@ -29,7 +29,7 @@ export class TokenMiddleware implements NestMiddleware {
         const tokenData = this.jwtService.verify(authHeader, {
           secret: 'your secret key',
         });
-        const user = await this.userService.findUserById(tokenData.id);
+        const user = await this.userService.findUserById(tokenData);
 
         if (user) {
           req['user'] = user;
