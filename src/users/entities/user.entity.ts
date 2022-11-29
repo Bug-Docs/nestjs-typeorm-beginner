@@ -24,7 +24,7 @@ export class User extends BaseEntity {
   @Column({ type: 'text' })
   email: string;
 
-  @Column({ type: 'string', array: true, onUpdate: 'CASCADE' })
+  @Column({ type: 'varchar', array: true, onUpdate: 'CASCADE' })
   pronounce: string[];
 
   @Exclude()
