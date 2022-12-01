@@ -7,6 +7,8 @@ import { typeOrmAsyncConfig } from './config/typeorm.config';
 import adminConfig from './config/admin';
 import { UsersModule } from './users/users.module';
 import { APILogMiddleware } from './middlewares/log.middleware';
+import { APP_FILTER } from '@nestjs/core';
+import { GlobalExceptionFilter } from './exceptions-handler/global.exception-filter';
 
 @Module({
   imports: [
@@ -18,7 +20,10 @@ import { APILogMiddleware } from './middlewares/log.middleware';
     UsersModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, {
+    provide: APP_FILTER,
+    useClass: GlobalExceptionFilter
+  }],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void {

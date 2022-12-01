@@ -1,14 +1,22 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, UseFilters } from '@nestjs/common';
 import { AppService } from './app.service';
+import { TestException } from './exceptions-handler/test.exception';
+import { TestExceptionFilter } from './exceptions-handler/test.exception-filter';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {
-    console.log(process.env);
   }
 
   @Get()
   getHello(): string {
     return this.appService.getHello();
+  }
+
+
+  @Get("exception")
+  @UseFilters(TestExceptionFilter)
+  exceptionFilterExample() {
+    throw new TestException();
   }
 }
