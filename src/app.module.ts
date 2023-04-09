@@ -8,12 +8,12 @@ import { UsersModule } from './users/users.module';
 import { APILogMiddleware } from './middlewares/log.middleware';
 import { APP_FILTER } from '@nestjs/core';
 import { GlobalExceptionFilter } from './exceptions-handler/global.exception-filter';
-import { dataSourceOptions } from 'db/data-source';
+import { typeOrmAsyncConfig } from "./config/typeorm.config";
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
-    TypeOrmModule.forRootAsync(dataSourceOptions),
+    TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
 
     adminConfig,
 
